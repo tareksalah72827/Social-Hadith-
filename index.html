@@ -1,0 +1,573 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    <title>منصة حديث الإسلامية | روابط رسمية</title>
+    <!-- Font Awesome 6 (free) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <!-- Google Fonts: Cairo (Arabic) + Space Grotesk for modern feel -->
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Cairo', 'Space Grotesk', sans-serif;
+            background: radial-gradient(circle at 10% 20%, #0a2f1f, #031a10);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 2rem;
+            position: relative;
+        }
+
+        /* Islamic geometric pattern overlay (very subtle) */
+        body::before {
+            content: "";
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" opacity="0.05"><path fill="none" stroke="%23d4af37" stroke-width="0.5" d="M20,20 L80,20 L80,80 L20,80 Z M50,20 L50,80 M20,50 L80,50 M35,35 L65,35 L65,65 L35,65 Z M50,35 L50,65 M35,50 L65,50"/><circle cx="50" cy="50" r="12" stroke="%23d4af37" fill="none"/></svg>');
+            background-repeat: repeat;
+            background-size: 40px;
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        /* Main card — Islamic Liquid Glass effect */
+        .glass-card {
+            max-width: 580px;
+            width: 100%;
+            background: rgba(18, 45, 32, 0.45);
+            backdrop-filter: blur(14px);
+            -webkit-backdrop-filter: blur(14px);
+            border-radius: 3rem;
+            border: 1px solid rgba(212, 175, 55, 0.4);
+            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.5), 0 0 0 1px rgba(212, 175, 55, 0.2) inset, 0 8px 20px rgba(0, 0, 0, 0.3);
+            padding: 2.2rem 2rem 2rem;
+            position: relative;
+            z-index: 2;
+            transition: all 0.4s ease;
+        }
+
+        /* Liquid reflection effect */
+        .glass-card::after {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 40%;
+            background: linear-gradient(135deg, rgba(212, 175, 55, 0.2) 0%, rgba(255, 255, 255, 0) 70%);
+            border-radius: 3rem 3rem 80% 80%;
+            pointer-events: none;
+        }
+
+        /* Logo container — clean, no extra decorations */
+        .logo-container {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 1.8rem;
+            position: relative;
+        }
+
+        .logo-img {
+            width: 130px;
+            height: 130px;
+            border-radius: 50%;
+            object-fit: cover;
+            background: #1c543b;
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.4), 0 0 0 3px rgba(212, 175, 55, 0.5);
+            transition: transform 0.4s cubic-bezier(0.2, 0.9, 0.4, 1.1);
+            border: none;
+        }
+
+        .logo-img:hover {
+            transform: scale(1.02);
+        }
+
+        /* Organization name with modern arabesque touch */
+        .org-title {
+            text-align: center;
+            margin-bottom: 0.25rem;
+        }
+
+        .org-name {
+            font-size: 2.2rem;
+            font-weight: 800;
+            background: linear-gradient(135deg, #F9EFCF 0%, #E6D5A8 100%);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            text-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+            letter-spacing: -0.5px;
+            line-height: 1.2;
+        }
+
+        .org-sub {
+            font-size: 1rem;
+            color: #CFD8C5;
+            letter-spacing: 1px;
+            margin-top: 5px;
+            font-weight: 400;
+            opacity: 0.9;
+        }
+
+        /* Lamha button (elevated) */
+        .lamha-wrapper {
+            text-align: center;
+            margin: 1.8rem 0 2rem;
+        }
+
+        .btn-lamha {
+            background: rgba(212, 175, 55, 0.1);
+            border: 1px solid #D4AF37;
+            color: #FDF8E7;
+            font-size: 1.2rem;
+            font-weight: 600;
+            padding: 0.75rem 2rem;
+            border-radius: 60px;
+            cursor: pointer;
+            backdrop-filter: blur(5px);
+            transition: all 0.3s;
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+            font-family: inherit;
+        }
+
+        .btn-lamha i {
+            color: #E6C97E;
+            font-size: 1.3rem;
+        }
+
+        .btn-lamha:hover {
+            background: rgba(212, 175, 55, 0.25);
+            transform: translateY(-3px);
+            box-shadow: 0 15px 25px -8px rgba(0, 0, 0, 0.5);
+            border-color: #f0d88a;
+        }
+
+        /* Social links grid — with copy button integration */
+        .social-links {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            margin: 2rem 0 2rem;
+        }
+
+        .link-item {
+            background: rgba(10, 30, 22, 0.55);
+            backdrop-filter: blur(4px);
+            border-radius: 80px;
+            border: 1px solid rgba(212, 175, 55, 0.35);
+            transition: all 0.25s ease;
+        }
+
+        .link-item:hover {
+            background: rgba(26, 70, 48, 0.7);
+            border-color: #D4AF37;
+            transform: translateX(-5px);
+        }
+
+        .link-wrapper {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0.75rem 1.2rem 0.75rem 0.8rem;
+            gap: 0.8rem;
+        }
+
+        .link-icon {
+            width: 48px;
+            text-align: center;
+            font-size: 1.8rem;
+            color: #D4AF37;
+        }
+
+        .link-name {
+            flex: 1;
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: #F7F3E4;
+            letter-spacing: 0.3px;
+        }
+
+        .link-url {
+            display: none; /* hidden for cleaner UI */
+        }
+
+        .copy-btn {
+            background: rgba(212, 175, 55, 0.2);
+            border: none;
+            width: 38px;
+            height: 38px;
+            border-radius: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.2s;
+            color: #D4AF37;
+            font-size: 1.2rem;
+        }
+
+        .copy-btn:hover {
+            background: #D4AF37;
+            color: #1a3a2a;
+            transform: scale(1.05);
+        }
+
+        .copy-btn.copied {
+            background: #2ecc71;
+            color: white;
+        }
+
+        /* toast notification */
+        .toast-msg {
+            position: fixed;
+            bottom: 30px;
+            left: 50%;
+            transform: translateX(-50%) scale(0.9);
+            background: #1E3A2F;
+            backdrop-filter: blur(20px);
+            color: #F5E6C4;
+            padding: 12px 24px;
+            border-radius: 60px;
+            font-size: 0.95rem;
+            font-weight: 500;
+            border: 1px solid #D4AF37;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4);
+            z-index: 1000;
+            opacity: 0;
+            transition: opacity 0.2s, transform 0.2s;
+            pointer-events: none;
+            white-space: nowrap;
+            font-family: 'Cairo', sans-serif;
+        }
+
+        .toast-msg.show {
+            opacity: 1;
+            transform: translateX(-50%) scale(1);
+        }
+
+        /* footer founder */
+        .founder-section {
+            text-align: center;
+            margin-top: 1rem;
+            padding-top: 1rem;
+            border-top: 1px dashed rgba(212, 175, 55, 0.4);
+            color: #C9D1BE;
+            font-size: 1rem;
+        }
+
+        .founder-name {
+            font-weight: 700;
+            color: #F0E2B6;
+            font-size: 1.1rem;
+        }
+
+        /* ========== MODAL (ISLAMIC GLASS) ========== */
+        .modal-glass {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 20, 12, 0.8);
+            backdrop-filter: blur(12px);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 1000;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+        }
+
+        .modal-glass.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .modal-card {
+            background: rgba(20, 50, 38, 0.85);
+            backdrop-filter: blur(16px);
+            border-radius: 2rem;
+            max-width: 480px;
+            width: 90%;
+            border: 1px solid rgba(212, 175, 55, 0.5);
+            box-shadow: 0 30px 50px rgba(0, 0, 0, 0.6), 0 0 0 1px rgba(212, 175, 55, 0.2) inset;
+            padding: 2rem 1.8rem;
+            position: relative;
+            transform: scale(0.95);
+            transition: transform 0.3s;
+        }
+
+        .modal-glass.active .modal-card {
+            transform: scale(1);
+        }
+
+        .modal-close {
+            position: absolute;
+            top: 1rem;
+            left: 1.2rem;
+            background: none;
+            border: none;
+            color: #D4AF37;
+            font-size: 1.8rem;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .modal-close:hover {
+            transform: rotate(90deg);
+            color: #ffde9e;
+        }
+
+        .modal-title {
+            text-align: center;
+            font-size: 1.9rem;
+            font-weight: 800;
+            color: #EFE0B2;
+            margin-bottom: 1.5rem;
+            border-bottom: 2px solid rgba(212, 175, 55, 0.4);
+            display: inline-block;
+            width: 100%;
+            padding-bottom: 0.5rem;
+        }
+
+        .modal-body p {
+            color: #F1E8D5;
+            line-height: 1.7;
+            margin-bottom: 1.2rem;
+            font-size: 1rem;
+        }
+
+        .modal-body strong {
+            color: #E9D48B;
+        }
+
+        .ai-badge {
+            background: rgba(0, 0, 0, 0.35);
+            border-radius: 30px;
+            padding: 6px 12px;
+            display: inline-block;
+            font-size: 0.85rem;
+            margin-top: 8px;
+        }
+
+        /* Responsive */
+        @media (max-width: 520px) {
+            .glass-card {
+                padding: 1.8rem 1.2rem;
+            }
+            .org-name {
+                font-size: 1.8rem;
+            }
+            .link-wrapper {
+                padding: 0.6rem 0.9rem;
+            }
+            .link-icon {
+                width: 40px;
+                font-size: 1.5rem;
+            }
+            .link-name {
+                font-size: 1rem;
+            }
+            .copy-btn {
+                width: 34px;
+                height: 34px;
+            }
+            .btn-lamha {
+                font-size: 1rem;
+                padding: 0.6rem 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<div class="glass-card">
+    <!-- Logo placeholder: user can replace src with base64 or direct URL -->
+    <div class="logo-container">
+        <img class="logo-img" id="orgLogo" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 200'%3E%3Crect width='200' height='200' fill='%231A4F35'/%3E%3Ctext x='100' y='120' font-size='24' font-family='Cairo' fill='%23D4AF37' text-anchor='middle'%3Eشعار%3C/text%3E%3Ctext x='100' y='155' font-size='18' fill='%23B69B5C' text-anchor='middle'%3EHadith%3C/text%3E%3C/svg%3E"
+             alt="شعار حديث الإسلامية">
+    </div>
+
+    <div class="org-title">
+        <div class="org-name">مُنَظَّمَةُ حَدِيثٍ<br>الإسلامية</div>
+        <div class="org-sub">نشرُ العلمِ بالحكمةِ والوسطية</div>
+    </div>
+
+    <!-- لمحة زر -->
+    <div class="lamha-wrapper">
+        <button class="btn-lamha" id="lamhaTrigger">
+            <i class="fas fa-landmark"></i>
+            <span>لَمْحَةٌ عَنِ المُنَظَّمَةِ</span>
+            <i class="fas fa-star-of-life"></i>
+        </button>
+    </div>
+
+    <!-- قائمة المنصات مع زر نسخ لكل منها -->
+    <div class="social-links" id="socialLinksContainer">
+        <!-- البيانات ستديناميكيًا لكن سنبني يدويًا مع ضبط الروابط والنسخ -->
+    </div>
+
+    <div class="founder-section">
+        <i class="fas fa-feather-alt"></i> المؤسس: 
+        <span class="founder-name">طَارِق صلَاح بِنْ مُحَمَّدِ الفَارِس</span>
+    </div>
+</div>
+
+<!-- Toast رسالة نسخ -->
+<div id="copyToast" class="toast-msg">تم نسخ الرابط 📋</div>
+
+<!-- Modal لمحة المنظمة -->
+<div id="insightModal" class="modal-glass">
+    <div class="modal-card">
+        <button class="modal-close" id="closeModalBtn"><i class="fas fa-times-circle"></i></button>
+        <div class="modal-title">
+            <i class="fas fa-quran"></i> نبذة تعريفيّة
+        </div>
+        <div class="modal-body">
+            <p><strong>منظمة حديث الإسلامية</strong> مؤسسة علمية دعوية تُعنى بخدمة الإسلام ونشر العلوم الشرعية بمنهج وسطي رصين، قائم على الكتاب والسنة، والمذاهب الفقهية بأصولها وفروعها.</p>
+            <p>تُقدِّم محتوى شرعيًا موثوقًا، وتَعتمد في بعض خدماتها على نظام الذكاء الاصطناعي <strong>Hadith AI</strong> لدعم نشر المعرفة الشرعية وفق منهجية علمية منضبطة.</p>
+            <p style="font-style: italic; color: #E6D5A8;">✨ علمٌ يُورَّث… ووعيٌ يُبْنَى. ✨</p>
+            <div class="ai-badge">
+                <i class="fas fa-microchip"></i> بالتعاون مع Hadith AI
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    // قائمة المنصات بالترتيب المطلوب: يوتيوب، انستا، X، ثريدز، أبل بودكاست، سبوتيفاي
+    const platforms = [
+        { name: "يوتيوب", icon: "fab fa-youtube", url: "https://youtube.com/@hadith_1?si=nsGhCir5pdM48lT1" },
+        { name: "إنستغرام", icon: "fab fa-instagram", url: "https://www.instagram.com/islamic_hadith4?igsh=MWxxazBra3g0ajgwdg==" },
+        { name: "X (تويتر)", icon: "fa-brands fa-x-twitter", url: "https://x.com/islamic4_hadith?s=21&t=r_8EgQ9UaTm3xj-WWPB6ZA" },
+        { name: "ثريدز", icon: "fa-brands fa-threads", url: "https://www.threads.net/@islamic_hadith4?igshid=NTc4MTIwNjQ2YQ==" },
+        { name: "آبل بودكاست", icon: "fa-solid fa-podcast", url: "https://podcasts.apple.com/eg/podcast/hadith4/id1851589405" },
+        { name: "سبوتيفاي بودكاست", icon: "fab fa-spotify", url: "https://open.spotify.com/show/61NeWyDgh1IUmrllNlsoLW?si=qOk7EZ6GQ62XG3vslN3VWA" }
+    ];
+
+    const container = document.getElementById("socialLinksContainer");
+    const toast = document.getElementById("copyToast");
+
+    function showToastMessage(message = "تم نسخ الرابط 📋") {
+        toast.textContent = message;
+        toast.classList.add("show");
+        setTimeout(() => {
+            toast.classList.remove("show");
+        }, 2000);
+    }
+
+    async function copyToClipboard(text, platformName) {
+        try {
+            await navigator.clipboard.writeText(text);
+            showToastMessage(`تم نسخ رابط ${platformName} ✅`);
+            // إضافة تأثير مؤقت على الزر (اختياري)
+        } catch (err) {
+            // Fallback
+            const textarea = document.createElement("textarea");
+            textarea.value = text;
+            document.body.appendChild(textarea);
+            textarea.select();
+            document.execCommand("copy");
+            document.body.removeChild(textarea);
+            showToastMessage(`تم نسخ رابط ${platformName} 📋`);
+        }
+    }
+
+    // بناء العناصر
+    platforms.forEach(platform => {
+        const linkItem = document.createElement("div");
+        linkItem.className = "link-item";
+
+        const wrapper = document.createElement("div");
+        wrapper.className = "link-wrapper";
+
+        // أيقونة
+        const iconSpan = document.createElement("div");
+        iconSpan.className = "link-icon";
+        iconSpan.innerHTML = `<i class="${platform.icon}"></i>`;
+
+        // اسم المنصة
+        const nameSpan = document.createElement("div");
+        nameSpan.className = "link-name";
+        nameSpan.innerText = platform.name;
+
+        // زر النسخ
+        const copyButton = document.createElement("button");
+        copyButton.className = "copy-btn";
+        copyButton.innerHTML = '<i class="far fa-copy"></i>';
+        copyButton.setAttribute("aria-label", `نسخ رابط ${platform.name}`);
+
+        // عند الضغط على الزر، نسخ الرابط
+        copyButton.addEventListener("click", (e) => {
+            e.stopPropagation();
+            copyToClipboard(platform.url, platform.name);
+            // تأثير سريع
+            copyButton.classList.add("copied");
+            copyButton.innerHTML = '<i class="fas fa-check"></i>';
+            setTimeout(() => {
+                copyButton.classList.remove("copied");
+                copyButton.innerHTML = '<i class="far fa-copy"></i>';
+            }, 1200);
+        });
+
+        // إضافة إمكانية نسخ عند الضغط على العنصر بالكامل (اختياري ولكن مفيد)
+        // لكن قد يتعارض مع الزر، نجعل العنصر بالكامل قابل للنسخ مع استثناء الزر؟ أفضل إبقاء الزر هو الأساس.
+        // لكن لو نقر على أي مكان آخر في الـ link-item لا يحدث نسخ (لتفادي الخطأ)
+        // نضيف فقط نسخ عن طريق الزر كما هو احترافي.
+
+        wrapper.appendChild(iconSpan);
+        wrapper.appendChild(nameSpan);
+        // إضافة رابط مخفي ليس ضرورياً
+        wrapper.appendChild(copyButton);
+        linkItem.appendChild(wrapper);
+        container.appendChild(linkItem);
+    });
+
+    // Modal functionality
+    const modal = document.getElementById("insightModal");
+    const lamhaBtn = document.getElementById("lamhaTrigger");
+    const closeModalBtn = document.getElementById("closeModalBtn");
+
+    function openModal() {
+        modal.classList.add("active");
+        document.body.style.overflow = "hidden";
+    }
+    function closeModal() {
+        modal.classList.remove("active");
+        document.body.style.overflow = "";
+    }
+    lamhaBtn.addEventListener("click", openModal);
+    closeModalBtn.addEventListener("click", closeModal);
+    modal.addEventListener("click", (e) => {
+        if (e.target === modal) closeModal();
+    });
+    document.addEventListener("keydown", (e) => {
+        if (e.key === "Escape" && modal.classList.contains("active")) closeModal();
+    });
+
+    // لاحظ: إزالة أي زوائد (شراشيب) تماماً — لم يعد هناك pseudo-element للزخرفة العلوية
+    // الصورة لها إطار ذهبي ناعم فقط، إن أردت إزالة الإطار الذهبي يمكن تعديل class logo-img
+    // لكن حسب الطلب السابق "شيل الشراشيب اللي فوق اطار الصوره" — تمت إزالة الشريط الزخرفي الذي كان أعلى البطاقة.
+    // تصميم Liquid Glass مع ألوان مريحة وخضراء عميقة.
+    
+    // --- إمكانية استبدال الشعار بسهولة: يمكن للمستخدم الآن وضع رابط صورة base64 أو رابط مباشر
+    // نضع تعليق توضيحي في الـ HTML أو يمكنه استبدال src في عنصر img
+    console.log("تم تحميل التصميم الجديد بنسخ الروابط وتأثيرات Islamic Liquid Glass");
+</script>
+</body>
+</html>
